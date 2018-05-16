@@ -1,7 +1,7 @@
 # Internet banking platform of a virtual (vulnerable) financial group 
 
 ## Image
-![image](https://user-images.githubusercontent.com/1051726/40121067-ab937624-595b-11e8-8400-9d03417e4ad6.png)![image](https://user-images.githubusercontent.com/1051726/40121202-fef04068-595b-11e8-8eae-f3ac04e5d63e.png)
+![image](https://user-images.githubusercontent.com/1051726/40121202-fef04068-595b-11e8-8eae-f3ac04e5d63e.png)
 ## How to install
 
 ```
