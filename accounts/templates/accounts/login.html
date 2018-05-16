@@ -1,0 +1,12 @@
+仮想フィナンシャルグループ銀行
+<form method="post" action="{% url 'accounts:login' %}">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ form.errors.username }}
+    店番号-口座番号:
+    {{ form.username }}
+    {{ form.errors.password }}
+    パスワード:
+    {{ form.password }}
+    <input type="submit" value="Login">
+</form>
