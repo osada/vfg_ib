@@ -1,12 +1,20 @@
-仮想フィナンシャルグループ銀行
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/accounts/style.css' %}" />
+
+<h1>仮想フィナンシャルグループ銀行</h1>
+<p>
 <form method="post" action="{% url 'accounts:login' %}">
     {% csrf_token %}
     {{ form.non_field_errors }}
     {{ form.errors.username }}
     店番号-口座番号:
     {{ form.username }}
-    {{ form.errors.password }}
-    パスワード:
+    <br />
+    {{ form.errors.password }} 
+    暗証番号:
     {{ form.password }}
-    <input type="submit" value="Login">
+    <br />
+    <input type="submit" value="ログイン">
 </form>
+</p>
