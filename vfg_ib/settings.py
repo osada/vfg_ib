@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'debug_toolbar',
-    'accounts.apps.AccountsConfig',
+    'balance.apps.BalanceConfig',
+    'account.apps.AccountConfig',
     'django.contrib.staticfiles',
 ]
 
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'vfg_ib.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,6 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIR = [
+#    os.path.join(BASE_DIR, 'static'),
+]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Debug Toolbar
@@ -152,8 +156,6 @@ if DEBUG:
 
 
 # Application Definition
-
-LOGIN_URL='/accounts/login'
-LOGIN_REDIRECT_URL='/accounts/'
-LOGOUT_REDIRECT_URL='/accounts/login'
-
+AUTH_USER_MODEL = 'account.User'
+LOGIN_URL = 'account:login'
+LOGIN_REDIRECT_URL = 'account:top'

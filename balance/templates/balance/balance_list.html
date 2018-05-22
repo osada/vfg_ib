@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        <p class="user-name">{{ user }} 様の口座</p>
+    {% endif %}
+
+    <h1>残高</h1>
+    <section class="account-list">
+        <ul>
+            {% for account in object_list %}
+                <li>
+                    <h2><a href="{% url 'balance:detail' account.pk %}">{{ account.title }}</a></h2>
+                    <p>{{ account.text }}</p>
+                </li>
+            {% empty %}
+                <li class="no-post">
+                    <p>お取引がありません．</p>
+            {% endfor %}
+        </ul>
+    </section>
+
+    {% if is_paginated %}
+        <section class="pagination">
+            <ul>
+                <li>
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}">&lt;&lt; Prev</a>
+                    {% else %}
+                        &lt;&lt; Prev
+                    {% endif %}
+                </li>
+                <li>
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">Next &gt;&gt;</a>
+                    {% else %}
+                        Next &gt;&gt;
+                    {% endif %}
+                </li>
+            </ul>
+        </section>
+    {% endif %}
+{% endblock %}
